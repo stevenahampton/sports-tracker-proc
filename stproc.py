@@ -25,6 +25,7 @@ import json
 from types import SimpleNamespace
 import xml.etree.ElementTree as ET
 import datetime
+import sys
 
 #
 # a simple pretty-print function since ElementTree can't do it itself
@@ -66,10 +67,10 @@ def getelevations(requrl, trkseg, trktime, delta):
 # start of main logic
 # -------------------------------------------------------------------------------------------------------------
 
-# parameters required - Google Maps API key 
-key = 'AIzaSyDK7mqMgzP_VtyTt9KH8R9icbN8s799NKc'
-getdesc = 'Milford Track Day 3'
-author = 'Steven Hampton'
+# parameters required - Google Maps API key, then workout description, then author name
+key = sys.argv[1]
+getdesc = sys.argv[2]
+author = sys.argv[3]
 
 # retrieve the necessary information from the sqlite database
 conn = sqlite3.connect('stt.db') # place the sports-tracker database in the current directory
